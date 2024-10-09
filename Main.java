@@ -72,14 +72,14 @@ class Main
         System.out.println("Max coins:" + valueMap[height-1][width-1]);
 
         //Print out Value Map for troubleshooting
-        System.out.println("Value Map:");
+        /*System.out.println("Value Map:");
         for(int i = 0; i < height; i++) {
             String output = "";
             for(int j = 0; j < width; j++) {
                 output += valueMap[i][j];
             }
             System.out.println(output);
-        }
+        }*/
 
 
         //Back tracking to determine path
@@ -92,7 +92,7 @@ class Main
                 " Upper Row: " + valueMap[i][j-1] +
                 " i: " + i +
                 " j: " + j);*/
-            System.out.println("i: " + i + " j: " + j);
+            //System.out.println("i: " + i + " j: " + j);
             int upperRow = i <= 0 ? -1 : valueMap[i-1][j];
             int leftCol = j <= 0 ? -1 : valueMap[i][j-1];
             if(upperRow > leftCol && i > 0) {
