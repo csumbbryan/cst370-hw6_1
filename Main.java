@@ -87,11 +87,11 @@ class Main
         int j = width - 1;
         String path = "(" + height + "," + width + ")";
         while (i > 0 || j > 0) {
-            System.out.println("Value: " + valueMap[i][j] +
+            /*System.out.println("Value: " + valueMap[i][j] +
                 " Left Col: " + valueMap[i-1][j] +
                 " Upper Row: " + valueMap[i][j-1] +
                 " i: " + i +
-                " j: " + j);
+                " j: " + j);*/
             int upperRow = i == 0 ? -1 : valueMap[i-1][j];
             int leftCol = j == 0 ? -1 : valueMap[i][j-1];
             if(upperRow < leftCol) {
