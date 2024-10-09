@@ -94,7 +94,7 @@ class Main
                 " j: " + j);
             int upperRow = i == 0 ? -1 : valueMap[i-1][j];
             int leftCol = j == 0 ? -1 : valueMap[i][j-1];
-            if(leftCol >= upperRow) {
+            if(upperRow < leftCol) {
                 i--; //what happens if J decrements all the way??
             } else {
                 j--;
