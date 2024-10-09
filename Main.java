@@ -69,6 +69,7 @@ class Main
             }
         }
 
+        //Print out Value Map for troubleshooting
         System.out.println("Value Map:");
         for(int i = 0; i < height; i++) {
             String output = "";
