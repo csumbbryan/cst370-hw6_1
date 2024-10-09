@@ -92,6 +92,7 @@ class Main
                 " Upper Row: " + valueMap[i][j-1] +
                 " i: " + i +
                 " j: " + j);*/
+            System.out.println("i: " + i + " j: " + j);
             int upperRow = i <= 0 ? -1 : valueMap[i-1][j];
             int leftCol = j <= 0 ? -1 : valueMap[i][j-1];
             if(upperRow < leftCol) {
