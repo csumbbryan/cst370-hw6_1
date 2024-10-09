@@ -86,10 +86,10 @@ class Main
         while (i > 0 && j > 0) {
             if(valueMap[i-1][j] >= valueMap[i][j-1]) {
                 i--; //what happens if J decrements all the way??
-                path = "(" + i + "," + j + ")->" + path;
+                path = "(" + i+1 + "," + j+1 + ")->" + path;
             } else {
                 j--;
-                path = "(" + i + "," + j + ")->" + path;
+                path = "(" + i+1 + "," + j+1 + ")->" + path;
             }
         }
         System.out.println("Path: " + path);
