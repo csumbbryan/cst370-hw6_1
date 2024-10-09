@@ -92,7 +92,7 @@ class Main
                 " Upper Row: " + valueMap[i][j-1] +
                 " i: " + i +
                 " j: " + j);
-            if(valueMap[i-1][j] >= valueMap[i][j-1]) {
+            if(valueMap[i-1][j] < valueMap[i][j-1]) {
                 i--; //what happens if J decrements all the way??
             } else {
                 j--;
