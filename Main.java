@@ -63,9 +63,9 @@ class Main
         Integer[][] valueMap = new Integer[height][width];
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
-                int leftCol = i == 0 ? 0 : valueMap[i-1][j];
-                int upperRow = j == 0 ? 0 : valueMap[i][j-1];
-                int fMax = Math.max(leftCol, upperRow);
+                int upperRow = i == 0 ? 0 : valueMap[i-1][j];
+                int leftCol = j == 0 ? 0 : valueMap[i][j-1];
+                int fMax = Math.max(upperRow, leftCol);
                 valueMap[i][j] = fMax + (coinMap[i][j] ? 1 : 0);
             }
         }
@@ -86,13 +86,15 @@ class Main
         int i = height - 1;
         int j = width - 1;
         String path = "(" + height + "," + width + ")";
-        while (i > 0 && j > 0) {
+        while (i > 0 || j > 0) {
             System.out.println("Value: " + valueMap[i][j] +
                 " Left Col: " + valueMap[i-1][j] +
                 " Upper Row: " + valueMap[i][j-1] +
                 " i: " + i +
                 " j: " + j);
-            if(valueMap[i-1][j] < valueMap[i][j-1]) {
+            int upperRow = i == 0 ? 0 : valueMap[i-1][j];
+            int leftCol = j == 0 ? 0 : valueMap[i][j-1];
+            if(leftCol >= upperRow) {
                 i--; //what happens if J decrements all the way??
             } else {
                 j--;
