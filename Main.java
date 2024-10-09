@@ -40,6 +40,7 @@ class Main
         }
 
         //Print Table for Troubleshooting purposes
+        /*
         System.out.println("Coin Map:");
         for(int i = 0; i < height; i++) {
             String output = "";
@@ -52,7 +53,7 @@ class Main
                 }
             }
             System.out.println(output);
-        }
+        }*/
 
         //Start on 1/1 (0/0)
         //From top or from left only
@@ -68,9 +69,10 @@ class Main
                 valueMap[i][j] = fMax + (coinMap[i][j] ? 1 : 0);
             }
         }
+        System.out.println("Max coins:" + valueMap[height-1][width-1]);
 
         //Print out Value Map for troubleshooting
-        System.out.println("Value Map:");
+        //System.out.println("Value Map:");
         for(int i = 0; i < height; i++) {
             String output = "";
             for(int j = 0; j < width; j++) {
@@ -78,6 +80,7 @@ class Main
             }
             System.out.println(output);
         }
+
 
         //Back tracking to determine path
         int i = height - 1;
@@ -93,7 +96,8 @@ class Main
             int pathj = j+1;
             path = "(" + pathi + "," + pathj + ")->" + path;
         }
-        System.out.println("Path: " + path);
+        path = "(1,1)->" + path;
+        System.out.println("Path:" + path);
     }
 }
 
