@@ -30,23 +30,49 @@ class Main
         height = Integer.parseInt(tableSize[0]);
         width = Integer.parseInt(tableSize[1]);
 
-        Boolean[][] map = new Boolean[height][width];
+        Boolean[][] coinMap = new Boolean[height][width];
         for(int i = 0; i < height; i++) {
             String[] tableRow = scanner.nextLine().split(" ");
             for (int j = 0; j < width; j++) {
-                map[i][j] = Integer.parseInt(tableRow[j]) == 1;
+                coinMap[i][j] = Integer.parseInt(tableRow[j]) == 1;
             }
         }
 
+        //Print Table for Troubleshooting purposes
         for(int i = 0; i < height; i++) {
             String output = "";
             for(int j = 0; j < width; j++) {
 
-                if(map[i][j]) {
+                if(coinMap[i][j]) {
                     output += "1 ";
                 } else {
                     output += "0 ";
                 }
+            }
+            System.out.println(output);
+        }
+
+        //Start on 1/1 (0/0)
+        //From top or from left only
+        //Recurrence relation - recursive
+
+        //Create value map
+        Integer[][] valueMap = new Integer[height][width];
+        for(int i = 0; i < height; i++) {
+            for(int j = 0; j < width; j++) {
+                if(coinMap[i][j]) {
+                    int leftCol = i == 0 ? 0 : valueMap[i-1][j];
+                    int upperRow = j == 0 ? 0 : valueMap[i][j-1];
+                    valueMap[i][j] = leftCol + upperRow + (coinMap[i][j] ? 1 : 0);
+                }
+            }
+        }
+
+        System.out.println("Value Map:");
+        for(int i = 0; i < height; i++) {
+            String output = "";
+            for(int j = 0; j < width; j++) {
+                output += valueMap[i][j];
             }
             System.out.println(output);
         }
