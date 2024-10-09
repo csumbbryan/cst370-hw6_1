@@ -39,13 +39,16 @@ class Main
         }
 
         for(int i = 0; i < height; i++) {
+            String output = "";
             for(int j = 0; j < width; j++) {
+
                 if(map[i][j]) {
-                    System.out.println("1 ");
+                    output += "1 ";
                 } else {
-                    System.out.println("0 ");
+                    output += "0 ";
                 }
             }
+            System.out.println(output);
         }
     }
 }
