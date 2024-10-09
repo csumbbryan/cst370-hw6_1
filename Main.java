@@ -72,14 +72,14 @@ class Main
         System.out.println("Max coins:" + valueMap[height-1][width-1]);
 
         //Print out Value Map for troubleshooting
-        /*System.out.println("Value Map:");
+        System.out.println("Value Map:");
         for(int i = 0; i < height; i++) {
             String output = "";
             for(int j = 0; j < width; j++) {
                 output += valueMap[i][j];
             }
             System.out.println(output);
-        }*/
+        }
 
 
         //Back tracking to determine path
@@ -87,6 +87,11 @@ class Main
         int j = width - 1;
         String path = "(" + height + "," + width + ")";
         while (i > 0 && j > 0) {
+            System.out.println("Value: " + valueMap[i][j] +
+                " Left Col: " + valueMap[i-1][j] +
+                " Upper Row: " + valueMap[i][j-1] +
+                " i: " + i +
+                " j: " + j);
             if(valueMap[i-1][j] >= valueMap[i][j-1]) {
                 i--; //what happens if J decrements all the way??
             } else {
