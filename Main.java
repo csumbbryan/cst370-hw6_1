@@ -104,7 +104,7 @@ class Main
             int pathj = j+1;
             path = "(" + pathi + "," + pathj + ")->" + path;
         }
-        path = "(1,1)->" + path;
+        //path = "(1,1)->" + path;
         System.out.println("Path:" + path);
     }
 }
