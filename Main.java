@@ -81,17 +81,15 @@ class Main
 
         //Back tracking to determine path
         int i = height - 1;
+        int j = width - 1;
         String path = "(" + height + "," + width + ")";
-        while (i > 0) {
-            int j = width - 1;
-            while (j > 0) {
-                if(valueMap[i-1][j] >= valueMap[i][j-1]) {
-                    i--; //what happens if J decrements all the way??
-                    path = "(" + i + "," + j + ")->" + path;
-                } else {
-                    j--;
-                    path = "(" + i + "," + j + ")->" + path;
-                }
+        while (i > 0 && j > 0) {
+            if(valueMap[i-1][j] >= valueMap[i][j-1]) {
+                i--; //what happens if J decrements all the way??
+                path = "(" + i + "," + j + ")->" + path;
+            } else {
+                j--;
+                path = "(" + i + "," + j + ")->" + path;
             }
         }
         System.out.println("Path: " + path);
