@@ -13,15 +13,40 @@
  * Name: Write your name
  * Date: MM/DD/YYYY
  */
- 
-class Main 
+
+import java.util.Scanner;
+
+class Main
 {
     public static void main(String[] args) {
 
-        // Develop your program here.
-        // The following is just a sample statement and and you need to replace it with your code
-        
-        System.out.println("Hello world!");
+        Scanner scanner = new Scanner(System.in);
+
+        //Process input
+        int height;
+        int width;
+
+        String[] tableSize = scanner.nextLine().split(" ");
+        height = Integer.parseInt(tableSize[0]);
+        width = Integer.parseInt(tableSize[1]);
+
+        Boolean[][] map = new Boolean[height][width];
+        for(int i = 0; i < height; i++) {
+            String[] tableRow = scanner.nextLine().split(" ");
+            for (int j = 0; j < width; j++) {
+                map[i][j] = Integer.parseInt(tableRow[j]) == 1;
+            }
+        }
+
+        for(int i = 0; i < height; i++) {
+            for(int j = 0; j < width; j++) {
+                if(map[i][j]) {
+                    System.out.println("1 ");
+                } else {
+                    System.out.println("0 ");
+                }
+            }
+        }
     }
 }
 
