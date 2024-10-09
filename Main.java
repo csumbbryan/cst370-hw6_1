@@ -40,6 +40,7 @@ class Main
         }
 
         //Print Table for Troubleshooting purposes
+        System.out.println("Coin Map:");
         for(int i = 0; i < height; i++) {
             String output = "";
             for(int j = 0; j < width; j++) {
@@ -61,7 +62,6 @@ class Main
         Integer[][] valueMap = new Integer[height][width];
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
-                System.out.println("i: " + i + " j: " + j);
                 int leftCol = i == 0 ? 0 : valueMap[i-1][j];
                 int upperRow = j == 0 ? 0 : valueMap[i][j-1];
                 int fMax = Math.max(leftCol, upperRow);
@@ -78,6 +78,23 @@ class Main
             }
             System.out.println(output);
         }
+
+        //Back tracking to determine path
+        int i = height - 1;
+        String path = "(" + height + "," + width + ")";
+        while (i > 0) {
+            int j = width - 1;
+            while (j > 0) {
+                if(valueMap[i-1][j] >= valueMap[i][j-1]) {
+                    i--; //what happens if J decrements all the way??
+                    path = "(" + i + "," + j + ")" + path;
+                } else {
+                    j--;
+                    path = "(" + i + "," + j + ")" + path;
+                }
+            }
+        }
+        System.out.println("Path: " + path);
     }
 }
 
