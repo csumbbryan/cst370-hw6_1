@@ -64,7 +64,8 @@ class Main
                 System.out.println("i: " + i + " j: " + j);
                 int leftCol = i == 0 ? 0 : valueMap[i-1][j];
                 int upperRow = j == 0 ? 0 : valueMap[i][j-1];
-                valueMap[i][j] = leftCol + upperRow + (coinMap[i][j] ? 1 : 0);
+                int fMax = Math.max(leftCol, upperRow);
+                valueMap[i][j] = fMax + (coinMap[i][j] ? 1 : 0);
             }
         }
 
