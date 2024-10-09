@@ -61,12 +61,10 @@ class Main
         Integer[][] valueMap = new Integer[height][width];
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
-                if(coinMap[i][j]) {
-                    System.out.println("i: " + i + " j: " + j);
-                    int leftCol = i == 0 ? 0 : valueMap[i-1][j];
-                    int upperRow = j == 0 ? 0 : valueMap[i][j-1];
-                    valueMap[i][j] = leftCol + upperRow + (coinMap[i][j] ? 1 : 0);
-                }
+                System.out.println("i: " + i + " j: " + j);
+                int leftCol = i == 0 ? 0 : valueMap[i-1][j];
+                int upperRow = j == 0 ? 0 : valueMap[i][j-1];
+                valueMap[i][j] = leftCol + upperRow + (coinMap[i][j] ? 1 : 0);
             }
         }
 
