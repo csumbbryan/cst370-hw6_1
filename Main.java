@@ -9,12 +9,13 @@
 
 // Finish the head comment with Abstract, Name, and Date.
 /*
- * Abstract: Describe the main ideas of the program.
- * Name: Write your name
- * Date: MM/DD/YYYY
+ * Abstract: Program accepts a matrix representing a grid of coins and calculates the maximum
+ * amount of coins that can be picked up traversing the grid without moving backward (left to right,
+ * top to bottom)
+ * Name: Bryan Zanoli
+ * Date: 10/15/2024
  */
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 class Main
@@ -96,7 +97,7 @@ class Main
             int upperRow = i <= 0 ? -1 : valueMap[i-1][j];
             int leftCol = j <= 0 ? -1 : valueMap[i][j-1];
             if(upperRow > leftCol && i > 0) {
-                i--; //what happens if J decrements all the way??
+                i--;
             } else if (j > 0) {
                 j--;
             }
@@ -104,7 +105,6 @@ class Main
             int pathj = j+1;
             path = "(" + pathi + "," + pathj + ")->" + path;
         }
-        //path = "(1,1)->" + path;
         System.out.println("Path:" + path);
     }
 }
